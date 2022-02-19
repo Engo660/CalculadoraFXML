@@ -11,6 +11,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 
@@ -74,6 +75,15 @@ public class CalculadoraController implements Initializable {
 
     @FXML
     private Button unoButton;
+    
+    @FXML
+    private MenuItem modernoItem;
+    
+    @FXML
+    private MenuItem normalItem;
+    
+    @FXML
+    private MenuItem clasicoItem;
 
     @FXML
     private GridPane view;
@@ -154,6 +164,23 @@ public class CalculadoraController implements Initializable {
 			calculo.insertarComa();
 		}
 		calculoText.setText(calculo.getPantalla());
+	}
+	
+	@FXML
+	void onNormalStyleAction(ActionEvent event) {
+		view.getStylesheets().clear();
+	}
+	
+	@FXML
+	void onClasicoStyleAction(ActionEvent event) {
+		view.getStylesheets().clear();
+		view.getStylesheets().add(getClass().getResource("/css/Clasico.css").toExternalForm());
+	}
+	
+	@FXML
+	void onModernoStyleAction(ActionEvent event) {
+		view.getStylesheets().clear();
+		view.getStylesheets().add(getClass().getResource("/css/Moderno.css").toExternalForm());
 	}
 
 }
